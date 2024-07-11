@@ -37,7 +37,7 @@ function Load() {
           <div className="col-md-12 text-center">
             <h1>This Load Page</h1>
           </div>
-          {data.map((x) => (
+          {data.map((x, index) => (
             <Card
               Url={x.urls.small}
               description={x.description}

@@ -5,7 +5,7 @@ import Card from "./Card";
 
 function Search() {
   let [data, setData] = useState([]);
-  let [img, setImg] = useState("55");
+  let [img, setImg] = useState("Office");
   const [isReadMore, setIsReadMore] = useState(true);
 
   const getData = async () => {
