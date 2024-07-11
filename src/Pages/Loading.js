@@ -44,7 +44,7 @@ function Loading() {
             dataLength={page}
             next={() => getData(10)}
             hasMore={true}
-            loader={<span class="loader"></span>}
+            loader={<div class="lds-hourglass"></div>}
           >
             <div className="row">
               {loaded

@@ -120,6 +120,7 @@ function Card(props) {
             </div>
           </div>
         </div>
+        <div class="lds-hourglass"></div>
       </div>
     </>
   );
