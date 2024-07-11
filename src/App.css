@@ -343,15 +343,20 @@ a {
   align-items: center;
 }
 
+.infinite-scroll-component {
+  overflow: hidden !important;
+}
 
 .lds-hourglass,
 .lds-hourglass:after {
   box-sizing: border-box;
 }
 .lds-hourglass {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   position: relative;
-  width: 80px;
   height: 80px;
 }
 .lds-hourglass:after {
