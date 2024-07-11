@@ -32,9 +32,7 @@ function PaginationItems() {
   }
 
   useEffect(() => {
-    return () => {
       getData(currentPage);
-    };
   }, []);
 
   return (
@@ -45,7 +43,7 @@ function PaginationItems() {
             <h1>This Pagination Page</h1>
           </div>
 
-          {data.map((x) => (
+          {data.map((x, index) => (
             <Card
               Url={x.urls.small}
               description={x.description}
@@ -60,6 +58,7 @@ function PaginationItems() {
               instagram_username={x.user.instagram_username}
               html={x.links.html}
               id={x.id}
+              key={index}
             />
           ))}
         </div>

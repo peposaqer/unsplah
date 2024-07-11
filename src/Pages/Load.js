@@ -25,9 +25,7 @@ function Load() {
   };
   
   useEffect(() => {
-    return () => {
       getData();
-    };
   }, []);
 
   return (

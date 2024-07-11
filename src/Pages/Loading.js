@@ -28,9 +28,7 @@ function Loading() {
   
 
   useEffect(() => {
-    return () => {
       getData();
-    };
   }, []);
 
   return (
@@ -63,6 +61,7 @@ function Loading() {
                       instagram_username={x.user.instagram_username}
                       html={x.links.html}
                       id={x.id}
+                      key={index}
                     />
                   ))
                 : ""}

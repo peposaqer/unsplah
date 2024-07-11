@@ -6,7 +6,6 @@ import Card from "./Card";
 function Search() {
   let [data, setData] = useState([]);
   let [img, setImg] = useState("Office");
-  const [isReadMore, setIsReadMore] = useState(true);
 
   const getData = async () => {
     try {
@@ -29,9 +28,7 @@ function Search() {
   };
 
   useEffect(() => {
-    return () => {
       getData();
-    };
   }, []);
 
   return (
@@ -69,6 +66,7 @@ function Search() {
               instagram_username={x.user.instagram_username}
               html={x.links.html}
               id={x.id}
+              key={index}
             />
           ))}
         </div>

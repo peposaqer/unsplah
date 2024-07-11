@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import Moment from "react-moment";
 
 function Card(props) {
-//   : `This Text ${img} Not Matching`
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -37,7 +36,6 @@ function Card(props) {
               >
                 {props.description ? props.description : ""}
               </ReadMoreArea>
-              {/* <p>{props.description.length >= 50 ? props.description : "fd"}</p> */}
             </div>
             <div>
               <div className="d-flex justify-content-between mt-4 mb-4">
