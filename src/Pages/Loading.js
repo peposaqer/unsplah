@@ -44,12 +44,7 @@ function Loading() {
             dataLength={page}
             next={() => getData(10)}
             hasMore={true}
-            loader={
-              <img
-                src="https://res.cloudinary.com/chuloo/image/upload/v1550093026/scotch-logo-gif_jq4tgr.gif"
-                alt="loading"
-              />
-            }
+            loader={<span class="loader"></span>}
           >
             <div className="row">
               {loaded
