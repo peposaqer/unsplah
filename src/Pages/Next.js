@@ -37,9 +37,9 @@ function Next() {
   };
 
   useEffect(() => {
-    return () => {
+    // return () => {
       getData();
-    };
+    // };
   }, []);
 
   return (
