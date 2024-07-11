@@ -1,0 +1,32 @@
+.nav-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+
+.nav-link {
+    color: #FFF;
+    font-size: 18px;
+    transition: all .3s;
+    margin: 0 1rem;
+}
+
+.nav-link.active {
+    color: #76ABAE !important;
+    font-weight: bold;
+    transition: all .3s;
+}
+
+.nav-link:hover {
+    color: #76ABAE !important;
+    transition: all .3s;
+}
