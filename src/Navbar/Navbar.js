@@ -14,8 +14,11 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to="/"
-                  activeClassName="active"
-                  className="nav-link fromRight"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active nav-link fromRight"
+                      : "nav-link fromRight"
+                  }
                 >
                   Next
                 </NavLink>
@@ -23,8 +26,11 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to="/PaginationItems"
-                  activeClassName="active"
-                  className="nav-link fromRight"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active nav-link fromRight"
+                      : "nav-link fromRight"
+                  }
                 >
                   Pagination
                 </NavLink>
@@ -32,8 +38,11 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to="/Load"
-                  activeClassName="active"
-                  className="nav-link"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active nav-link fromRight"
+                      : "nav-link fromRight"
+                  }
                 >
                   Load
                 </NavLink>
@@ -41,8 +50,11 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to="/Loading"
-                  activeClassName="active"
-                  className="nav-link"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active nav-link fromRight"
+                      : "nav-link fromRight"
+                  }
                 >
                   Endless Scrolling
                 </NavLink>
@@ -50,8 +62,11 @@ function Navbar() {
               <li className="nav-item ">
                 <NavLink
                   to="/Search"
-                  activeClassName="active"
-                  className="nav-link"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active nav-link fromRight"
+                      : "nav-link fromRight"
+                  }
                 >
                   Search
                 </NavLink>

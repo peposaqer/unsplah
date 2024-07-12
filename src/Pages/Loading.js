@@ -42,29 +42,10 @@ function Loading() {
             dataLength={page}
             next={() => getData(10)}
             hasMore={true}
-            loader={<div class="lds-hourglass"></div>}
+            loader={<div className="lds-hourglass"></div>}
           >
             <div className="row">
-              {loaded
-                ? data.map((x, index) => (
-                    <Card
-                      Url={x.urls.small}
-                      description={x.description}
-                      user={x.user.username}
-                      likes={x.likes}
-                      Moment={x.created_at}
-                      profile_image={x.user.profile_image.small}
-                      username={x.user.name}
-                      total_likes={x.user.total_likes}
-                      total_photos={x.user.total_photos}
-                      twitter_username={x.user.twitter_username}
-                      instagram_username={x.user.instagram_username}
-                      html={x.links.html}
-                      id={x.id}
-                      key={index}
-                    />
-                  ))
-                : ""}
+              {loaded ? data.map((x) => <Card item={x} key={x.id} />) : ""}
             </div>
           </InfiniteScroll>
         </div>

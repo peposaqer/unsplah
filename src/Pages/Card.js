@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import ReadMoreArea from "@foxeian/react-read-more";
 import Modal from "react-bootstrap/Modal";
 import Moment from "react-moment";
 
 function Card(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [item, setItem] = useState(props.item)
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
 
   return (
     <>
@@ -16,37 +19,46 @@ function Card(props) {
           <div>
             <div className="overflow-hidden">
               <img
-                src={props.Url}
+                src={item.urls.small}
                 className="card-img-top"
-                alt={props.description}
+                alt={item.description}
               />
             </div>
           </div>
           <div className="card-body">
             <div>
-              <h5 className="card-title">{props.user}</h5>
-              <ReadMoreArea
-                lettersLimit={20}
-                buttonStyle={{
-                  fontSize: "16px",
-                  color: "red",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                {props.description ? props.description : ""}
-              </ReadMoreArea>
+              <h5 className="card-title">{item.user.username}</h5>
+              <p className="">
+                {isReadMore && item.description && item.description.length > 30
+                  ? item.description.substring(0, 30) + "..."
+                  : item.description}
+                <span
+                  onClick={toggleReadMore}
+                  className="read-or-hide"
+                  style={{ color: "red" }}
+                >
+                  {isReadMore &&
+                  item.description &&
+                  item.description.length > 30
+                    ? " Read More"
+                    : !isReadMore &&
+                      item.description &&
+                      item.description.length > 30
+                    ? "Read Less"
+                    : ""}
+                </span>
+              </p>
             </div>
             <div>
               <div className="d-flex justify-content-between mt-4 mb-4">
                 <div>
                   <h4>Likes</h4>
-                  <span>{props.likes}</span>
+                  <span>{item.likes}</span>
                 </div>
                 <div>
                   <h4>created At</h4>
                   <Moment fromNow ago>
-                    {props.Moment}
+                    {item.created_at}
                   </Moment>
                 </div>
               </div>
@@ -58,48 +70,52 @@ function Card(props) {
                   <div className={"profile"}>
                     <div className="d-flex align-items-center">
                       <img
-                        src={props.profile_image}
+                        src={item.user.profile_image.small}
                         className="card-img-top"
-                        alt={props.description}
+                        alt={item.description}
                       />
                       <div>
-                        <h4>{props.username}</h4>
+                        <h4>{item.user.name}</h4>
                       </div>
                     </div>
                     <div className="d-flex justify-content-between mt-4 mb-4">
                       <div>
                         <h4>Total Likes</h4>
-                        <span>{props.total_likes}</span>
+                        <span>{item.user.total_likes}</span>
                       </div>
                       <div>
                         <h4>Total Photos</h4>
-                        <span>{props.total_photos}</span>
+                        <span>{item.user.total_photos}</span>
                       </div>
                     </div>
                     <div className="d-flex justify-content-between mt-4 mb-4">
                       <div>
                         <h4>Twitter Username</h4>
                         <a
-                          href={`https://x.com/${props.twitter_username}`}
+                          href={`https://x.com/${item.user.twitter_username}`}
                           target="_blank"
                           className="user-link"
                         >
-                          {props.twitter_username}
+                          {item.user.twitter_username}
                         </a>
                       </div>
                       <div>
                         <h4>Instagram Username</h4>
                         <a
-                          href={`https://www.instagram.com/${props.instagram_username}`}
+                          href={`https://www.instagram.com/${item.user.instagram_username}`}
                           target="_blank"
                           className="user-link"
                         >
-                          {props.instagram_username}
+                          {item.user.instagram_username}
                         </a>
                       </div>
                     </div>
                     <div className="d-flex justify-content-between mt-4 mb-4">
-                      <a href={props.html} className="w-100 go" target="_blank">
+                      <a
+                        href={item.links.html}
+                        className="w-100 go"
+                        target="_blank"
+                      >
                         Profile
                       </a>
                     </div>
@@ -108,7 +124,7 @@ function Card(props) {
               </Modal>
 
               <div className="d-flex justify-content-between mt-4 mb-4">
-                <a href={props.html} className="" target="_blank">
+                <a href={item.links.html} className="" target="_blank">
                   Show Photo
                 </a>
                 <a href="#!" onClick={handleShow}>

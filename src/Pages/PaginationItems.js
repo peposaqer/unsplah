@@ -14,7 +14,6 @@ function PaginationItems() {
         `https://api.unsplash.com/photos?page=${currentPage}&client_id=LB3stMalUeAMbvPKGM_7rHd4DOnUhbixDJfKaLLZm4g`
       );
       setData(response.data);
-      console.log(response.data);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -25,7 +24,6 @@ function PaginationItems() {
   };
 
   const handlePageChange = (currentPage) => {
-    console.log(`active page is ${currentPage}`);
     setCurrentPage(currentPage);
     getData(currentPage);
     
@@ -43,23 +41,8 @@ function PaginationItems() {
             <h1>This Pagination Page</h1>
           </div>
 
-          {data.map((x, index) => (
-            <Card
-              Url={x.urls.small}
-              description={x.description}
-              user={x.user.username}
-              likes={x.likes}
-              Moment={x.created_at}
-              profile_image={x.user.profile_image.small}
-              username={x.user.name}
-              total_likes={x.user.total_likes}
-              total_photos={x.user.total_photos}
-              twitter_username={x.user.twitter_username}
-              instagram_username={x.user.instagram_username}
-              html={x.links.html}
-              id={x.id}
-              key={index}
-            />
+          {data.map((x) => (
+            <Card item={x} key={x.id} />
           ))}
         </div>
         <Pagination

@@ -385,3 +385,6 @@ a {
   }
 }
 
+.card p span {
+  cursor: pointer;
+}
