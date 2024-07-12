@@ -26,7 +26,11 @@ function PaginationItems() {
   const handlePageChange = (currentPage) => {
     setCurrentPage(currentPage);
     getData(currentPage);
-    
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
   }
 
   useEffect(() => {

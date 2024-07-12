@@ -25,6 +25,7 @@ function Next() {
   const nextStep = () => {
     if (currentPage < 346) {
       setCurrentPage(++currentPage);
+      window.scrollTo({ top: 0 });
       getData();
     }
   };
@@ -32,12 +33,18 @@ function Next() {
   const prevStep = (e) => {
     if (currentPage > 1) {
       setCurrentPage(--currentPage);
+      window.scrollTo({ top: 0 });
       getData();
     }
   };
 
   useEffect(() => {
       getData();
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
   }, []);
 
   return (
